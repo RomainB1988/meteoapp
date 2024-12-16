@@ -1,3 +1,16 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
+import { Application } from "@hotwired/stimulus";
+
+
+// Initialiser Stimulus
+const application = Application.start();
+
+// Importer manuellement vos contrôleurs ici
+import HelloController from "./controllers/hello_controller";
+import WeatherController from "./controllers/weather_controller";
+
+// Enregistrer manuellement chaque contrôleur
+application.register("hello", HelloController);
+application.register("weather", WeatherController);
+
+// Exporter l'application Stimulus si nécessaire
+export default application;
