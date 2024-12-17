@@ -1,12 +1,22 @@
-<%= javascript_pack_tag 'application' %>
-<div id="root"></div>
-
-<div data-controller="hello">
-  <span data-hello-target="output"></span>
-</div>
-
-<div data-controller="weather">
-  <input data-weather-target="input" type="text" placeholder="Entrez une ville" />
-  <button data-action="click->weather#fetchWeather">Rechercher</button>
-  <p data-weather-target="output">Chargement des données météo...</p>
+<div class="container mt-4">
+  <h1 class="text-center">Application Météo</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          Météo actuelle
+        </div>
+        <div class="card-body">
+          <form data-controller="weather">
+          <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Entrez une ville..." data-weather-target="input">
+          <button class="btn btn-primary" type="button" data-action="click->weather#fetchWeather">Rechercher</button>
+        </div>
+        <div data-weather-target="output" class="text-center">
+          Chargement des données météo...
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

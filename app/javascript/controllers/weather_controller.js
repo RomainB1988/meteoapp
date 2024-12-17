@@ -23,6 +23,7 @@ export default class extends Controller {
   }
 
   displayWeather(data) {
-    this.outputTarget.textContent = `Il fait ${data.main.temp}°C à ${data.name} avec un temps ${data.weather[0].description}.`;
+    const weatherInfo = `Il fait ${data.main.temp}°C à ${data.name} avec un temps ${data.weather[0].description}.`;
+    this.outputTarget.textContent = weatherInfo;
   }
 }

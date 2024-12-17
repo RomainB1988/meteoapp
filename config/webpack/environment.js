@@ -1,9 +1,17 @@
-const { environment } = require('@rails/webpacker')
-const webpack = require('webpack')
+const { environment } = require('@rails/webpacker');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// Ajout des plugins pour supporter les modules modernes
-environment.plugins.append('Provide', new webpack.ProvidePlugin({
-  process: 'process/browser',
-}))
+environment.loaders.append('style', {
+  test: /\.css$/,
+  use: [MiniCssExtractPlugin.loader, 'css-loader'],
+});
 
-module.exports = environment
+environment.plugins.append(
+  'MiniCssExtractPlugin',
+  new MiniCssExtractPlugin({
+    filename: '[name].css',
+    chunkFilename: '[id].css',
+  })
+);
+
+module.exports = environment;
