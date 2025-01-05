@@ -1,1 +1,6 @@
-@import "bootstrap/scss/bootstrap";
+@use "bootstrap";
+
+
+body {
+  background-color: #0f4070;
+}
